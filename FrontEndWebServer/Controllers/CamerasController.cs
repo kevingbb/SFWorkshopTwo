@@ -69,7 +69,7 @@ namespace FrontEndWebServer.Controllers
 
             System.Diagnostics.Trace.WriteLine(String.Format(" Camera Count: {0}", camerasCount));
 
-            return this.Ok(camerasCount.ToString());
+            return this.Ok(String.Format("Count: {0}", camerasCount.ToString()));
         }
 
         // PUT api/cameras/5
