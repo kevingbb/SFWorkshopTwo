@@ -9,5 +9,5 @@ api/cameras using GET     Returns the count of the cameras
 
 api/cameras using POST    Increments the camera counter by one
 
-index.html                A web page that has a button that will invoke the api/cameras POST
+/ (Root of Website)       Brings up a web page that has a button that will invoke the api/cameras POST. A tool such as POSTMAN can be used as well.
 
