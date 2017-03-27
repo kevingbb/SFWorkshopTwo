@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "SFWorkshopTwo", "SFWorkshopTwo\SFWorkshopTwo.sfproj", "{60EB5483-E96A-4476-8191-EB70FA117A66}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FrontEndWebServer", "FrontEndWebServer\FrontEndWebServer.xproj", "{E7A36ADF-1996-4468-BA67-C2FE0AFB4C73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEndWebServer", "FrontEndWebServer\FrontEndWebServer.csproj", "{E7A36ADF-1996-4468-BA67-C2FE0AFB4C73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEndStatefulService", "BackEndStatefulService\BackEndStatefulService.csproj", "{BE799034-FBCC-48E9-A851-C8FBDFD395EF}"
 EndProject
