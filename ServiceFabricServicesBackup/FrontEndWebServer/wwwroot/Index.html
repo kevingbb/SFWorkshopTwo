@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Adding Cameras</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        var serviceUrl = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+        var serviceUrl = serviceUrl + location.pathname;
+
+        function AddCamera()
+        {
+            $.ajax({
+                url: serviceUrl + 'api/cameras/',
+                method: 'POST'
+            })
+           .done(function (cameraResult) {
+               $('#cameraCount').html(cameraResult);
+           })
+           .error(function (cameraErrorResult) {
+               $('#cameraCount').html(cameraErrorResult);
+           });
+        }
+    </script>
+    <div class="jumbotron">
+        <h1>Click button to add a camera to the count.</h1>
+        <p>
+            <a class="btn btn-primary btn-lg" role="button" onclick="AddCamera();">
+                Add Camera
+            </a>
+        </p>
+    </div>
+    <div id="cameraCount"></div>
+</body>
+</html>
