@@ -25,10 +25,16 @@ namespace FrontEndWebServer.Controllers
         public async Task<IEnumerable<string>> Get()
         {
             long camerasCount = 0;
+            // The Random number is because we have two partitions and
+            // we are simply going to randomize the requests.
+            Random rnd = new Random();
 
             try
             {
-                Microsoft.ServiceFabric.Services.Client.ServicePartitionKey partKey = new Microsoft.ServiceFabric.Services.Client.ServicePartitionKey(0);
+                // This is the partition logic required to access
+                // the partitioned StatefulService in the back-end.
+                long randomNumber = rnd.Next(0, 2);
+                Microsoft.ServiceFabric.Services.Client.ServicePartitionKey partKey = new Microsoft.ServiceFabric.Services.Client.ServicePartitionKey(randomNumber);
                 ICameras cameras = ServiceProxy.Create<ICameras>(backEndServiceUri, partKey, Microsoft.ServiceFabric.Services.Communication.Client.TargetReplicaSelector.Default, null);
 
                 camerasCount = await cameras.GetCamerasCountAsync();
@@ -54,10 +60,16 @@ namespace FrontEndWebServer.Controllers
         public async Task<IActionResult> Post()
         {
             long camerasCount = 0;
+            // The Random number is because we have two partitions and
+            // we are simply going to randomize the requests.
+            Random rnd = new Random();
 
             try
             {
-                Microsoft.ServiceFabric.Services.Client.ServicePartitionKey partKey = new Microsoft.ServiceFabric.Services.Client.ServicePartitionKey(0);
+                // This is the partition logic required to access
+                // the partitioned StatefulService in the back-end.
+                long randomNumber = rnd.Next(0, 2);
+                Microsoft.ServiceFabric.Services.Client.ServicePartitionKey partKey = new Microsoft.ServiceFabric.Services.Client.ServicePartitionKey(randomNumber);
                 ICameras cameras = ServiceProxy.Create<ICameras>(backEndServiceUri, partKey, Microsoft.ServiceFabric.Services.Communication.Client.TargetReplicaSelector.Default, null);
 
                 camerasCount = await cameras.AddCameraAsync();

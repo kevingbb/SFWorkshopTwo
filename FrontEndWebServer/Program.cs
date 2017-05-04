@@ -63,11 +63,12 @@ namespace FrontEndWebServer
 
                 string serverUrl = $"{endpoint.Protocol}://{FabricRuntime.GetNodeContext().IPAddressOrFQDN}:{endpoint.Port}";
 
-                _webHost = new WebHostBuilder().UseKestrel()
-                                               .UseContentRoot(Directory.GetCurrentDirectory())
-                                               .UseStartup<Startup>()
-                                               .UseUrls(serverUrl)
-                                               .Build();
+                _webHost = new WebHostBuilder()
+                    .UseKestrel()
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseStartup<Startup>()
+                    .UseUrls(serverUrl)
+                    .Build();
 
                 _webHost.Start();
 
